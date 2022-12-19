@@ -8,7 +8,7 @@ class Conexion{
 			            "root",
 			            "4149769i");
 
-		$link->exec("set names utf8");
+		$link->exec("set names uπtf8");
 
 		return $link;
 
