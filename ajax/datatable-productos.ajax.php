@@ -7,6 +7,10 @@ require_once "../controladores/categorias.controlador.php";
 require_once "../modelos/categorias.modelo.php";
 
 
+require '../vendor/autoload.php';
+
+
+
 class TablaProductos{
 
  	/*=============================================
@@ -15,6 +19,7 @@ class TablaProductos{
 
 	public function mostrarTablaProductos(){
 
+        $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
 		$item = null;
     	$valor = null;
     	$orden = "id";
@@ -38,6 +43,14 @@ class TablaProductos{
   			=============================================*/ 
 
 		  	$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
+/*=============================================
+ 	 		TRAEMOS EL CODEBAR
+  			=============================================*/
+
+		  	$codebar = "<img src='data:image/png;base64,". base64_encode($generator->getBarcode($productos[$i]["codigo"], $generator::TYPE_CODE_128)) ."'>";
+
+
+
 
 		  	/*=============================================
  	 		TRAEMOS LA CATEGORÍA
@@ -66,9 +79,10 @@ class TablaProductos{
 
   			}
 
+
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES
-  			=============================================*/ 
+  			=============================================*/
 
   			if(isset($_GET["perfilOculto"]) && $_GET["perfilOculto"] == "Especial"){
 
@@ -91,6 +105,7 @@ class TablaProductos{
 			      "'.$productos[$i]["precio_compra"].'",
 			      "'.$productos[$i]["precio_venta"].'",
 			      "'.$productos[$i]["fecha"].'",
+			      "'.$codebar.'",
 			      "'.$botones.'"
 			    ],';
 
@@ -101,7 +116,8 @@ class TablaProductos{
 		 $datosJson .=   '] 
 
 		 }';
-		
+
+
 		echo $datosJson;
 
 

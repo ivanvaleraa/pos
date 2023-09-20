@@ -64,6 +64,7 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th>Precio de compra</th>
            <th>Precio de venta</th>
            <th>Agregado</th>
+           <th>Codigo de Barra</th>
            <th>Acciones</th>
            
          </tr> 
@@ -155,7 +156,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="nuevoCodigo" readonly name="nuevoCodigo" placeholder="Ingresar código" required>
+                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" required>
 
               </div>
 

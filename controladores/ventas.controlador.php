@@ -99,7 +99,7 @@ class ControladorVentas{
 
 			$item1b = "ultima_compra";
 
-			date_default_timezone_set('America/Bogota');
+			date_default_timezone_set('America/Santo_Domingo');
 
 			$fecha = date('Y-m-d');
 			$hora = date('H:i:s');
@@ -120,10 +120,11 @@ class ControladorVentas{
 						   "impuesto"=>$_POST["nuevoPrecioImpuesto"],
 						   "neto"=>$_POST["nuevoPrecioNeto"],
 						   "total"=>$_POST["totalVenta"],
-						   "metodo_pago"=>$_POST["listaMetodoPago"]);
+						   "metodo_pago"=>$_POST["listaMetodoPago"],
+						   "nombre_contado"=>$_POST["nombreContado"],
+            );
 
 			$respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
-
 			if($respuesta == "ok"){
 
 				if(isset($_POST["impresion"])){

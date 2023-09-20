@@ -118,9 +118,9 @@ if($_SESSION["perfil"] == "Especial"){
                 
                 </div>
 
-                <!--=====================================
-                ENTRADA DEL CLIENTE
-                ======================================--> 
+                  <!--=====================================
+                  ENTRADA DEL CLIENTE
+                  ======================================-->
 
                 <div class="form-group">
                   
@@ -128,7 +128,7 @@ if($_SESSION["perfil"] == "Especial"){
                     
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
                     
-                    <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
+                    <select onChange="activarContado(this)" class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
 
                     <option value="">Seleccionar cliente</option>
 
@@ -152,8 +152,16 @@ if($_SESSION["perfil"] == "Especial"){
                     <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAgregarCliente" data-dismiss="modal">Agregar cliente</button></span>
                   
                   </div>
-                
+
+
                 </div>
+
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                          <input type="text" class="form-control" id="nombreContado" name="nombreContado" value="" disabled>
+                      </div>
+                  </div>
 
                 <!--=====================================
                 ENTRADA PARA AGREGAR PRODUCTO
@@ -279,7 +287,7 @@ if($_SESSION["perfil"] == "Especial"){
             <div class="pull-right">
 
               <div class="checkbox">
-                <label><input type="checkbox" value="1" checked name="impresion">Imprimir Ticket</label>
+                <label><input type="checkbox" value="1" name="impresion">Imprimir Ticket</label>
               </div>
 
               <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
@@ -314,7 +322,9 @@ if($_SESSION["perfil"] == "Especial"){
           <div class="box-body">
             
             <table class="table table-bordered table-striped dt-responsive tablaVentas">
-              
+                <form action="#">
+                    Buscar con Codigo de Barra:<input type="text" onkeydown="agregarProductoCodeBar(this.value)" id="txtCodeBar">
+                </form>
                <thead>
 
                  <tr>
@@ -489,3 +499,8 @@ MODAL AGREGAR CLIENTE
   </div>
 
 </div>
+
+<script>
+
+
+</script>

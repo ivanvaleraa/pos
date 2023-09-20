@@ -4,10 +4,8 @@
 Mostrar errores
 =============================================*/
 
-ini_set('display_errors', 1);
-ini_set("log_errors", 1);
-ini_set("error_log",  "D:/xampp/htdocs/pos/php_error_log");
-
+ini_set('display_errors', 0);
+ini_set("log_errors", 0);
 require_once "controladores/plantilla.controlador.php";
 require_once "controladores/usuarios.controlador.php";
 require_once "controladores/categorias.controlador.php";

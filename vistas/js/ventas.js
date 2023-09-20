@@ -62,8 +62,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
 
-     $.ajax({
-
+	$.ajax({
      	url:"ajax/productos.ajax.php",
       	method: "POST",
       	data: datos,
@@ -725,6 +724,113 @@ function quitarAgregarProducto(){
 	
 }
 
+function agregarProductoCodeBar(codeBar){
+	const barcode = String(codeBar)
+	if(barcode.length == 12){
+		var datos = new FormData();
+		datos.append("codeBar", codeBar);
+		$.ajax({
+			url:"ajax/productos.ajax.php",
+			method: "POST",
+			data: datos,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType:"json",
+			success:function(respuesta){
+
+				var idProducto = respuesta["id"];
+				var descripcion = respuesta["descripcion"];
+				var stock = respuesta["stock"];
+				var precio = respuesta["precio_venta"];
+
+				/*=============================================
+                EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
+                =============================================*/
+
+				if(stock == 0){
+
+					swal({
+						title: "No hay stock disponible",
+						type: "error",
+						confirmButtonText: "¡Cerrar!"
+					});
+
+					$("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
+
+					return;
+
+				}
+
+				$(".nuevoProducto").append(
+
+					'<div class="row" style="padding:5px 15px">'+
+
+					'<!-- Descripción del producto -->'+
+
+					'<div class="col-xs-6" style="padding-right:0px">'+
+
+					'<div class="input-group">'+
+
+					'<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto="'+idProducto+'"><i class="fa fa-times"></i></button></span>'+
+
+					'<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+descripcion+'" readonly required>'+
+
+					'</div>'+
+
+					'</div>'+
+
+					'<!-- Cantidad del producto -->'+
+
+					'<div class="col-xs-3">'+
+
+					'<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
+
+					'</div>' +
+
+					'<!-- Precio del producto -->'+
+
+					'<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
+
+					'<div class="input-group">'+
+
+					'<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+
+					'<input type="text" class="form-control nuevoPrecioProducto" precioReal="'+precio+'" name="nuevoPrecioProducto" value="'+precio+'" readonly required>'+
+
+					'</div>'+
+
+					'</div>'+
+
+					'</div>')
+
+				// SUMAR TOTAL DE PRECIOS
+
+				sumarTotalPrecios()
+
+				// AGREGAR IMPUESTO
+
+				agregarImpuesto()
+
+				// AGRUPAR PRODUCTOS EN FORMATO JSON
+
+				listarProductos()
+
+				// PONER FORMATO AL PRECIO DE LOS PRODUCTOS
+
+				$(".nuevoPrecioProducto").number(true, 2);
+
+
+				localStorage.removeItem("quitarProducto");
+
+			}
+
+		})
+
+		document.getElementById('txtCodeBar').value = ''
+	}
+}
+
 /*=============================================
 CADA VEZ QUE CARGUE LA TABLA CUANDO NAVEGAMOS EN ELLA EJECUTAR LA FUNCIÓN:
 =============================================*/
@@ -882,5 +988,19 @@ $(".abrirXML").click(function(){
 
 
 })
+
+function activarContado(selectObject){
+	let get= document.getElementById("nombreContado")
+	let value = selectObject.value;
+
+	if(value == 1){
+		get.disabled = false;
+		console.log(value)
+	}else{
+		get.disabled = true;
+		console.log(value)
+	}
+
+}
 
 

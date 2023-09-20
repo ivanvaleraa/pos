@@ -73,6 +73,21 @@ class AjaxProductos{
     }
 
   }
+  
+  public $codeBar;
+  public function ajaxCodeBar(){
+      $item = "codigo";
+      $valor = $this->codeBar;
+      $orden = "codigo";
+
+      $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor,
+        $orden);
+
+      echo json_encode($respuesta);
+
+    
+
+  }
 
 }
 
@@ -97,6 +112,16 @@ if(isset($_POST["idProducto"])){
   $editarProducto = new AjaxProductos();
   $editarProducto -> idProducto = $_POST["idProducto"];
   $editarProducto -> ajaxEditarProducto();
+
+}
+
+/*=============================================
+CODEBAR
+=============================================*/
+if(isset($_POST["codeBar"])){
+  $traerCodeBar = new AjaxProductos();
+  $traerCodeBar -> codeBar = $_POST["codeBar"];
+  $traerCodeBar -> ajaxCodeBar();
 
 }
 
