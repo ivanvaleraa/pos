@@ -323,7 +323,12 @@ if($_SESSION["perfil"] == "Especial"){
             
             <table class="table table-bordered table-striped dt-responsive tablaVentas">
                 <form action="#">
-                    Buscar con Codigo de Barra:<input type="text" onkeydown="agregarProductoCodeBar(this.value)" id="txtCodeBar">
+                    <div class="form-group row">
+                        <label for="codeBarInput" class="col-sm-2 col-form-label">Codigo de Barra</label>
+                        <div class="col-sm-10">
+                            <input type="text" onkeydown="agregarProductoCodeBar(this.value)" id="txtCodeBar">
+                        </div>
+                    </div>
                 </form>
                <thead>
 
