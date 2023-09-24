@@ -100,7 +100,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 			  '<!-- Descripción del producto -->'+
 	          
-	          '<div class="col-xs-6" style="padding-right:0px">'+
+	          '<div class="col-xs-4" style="padding-right:0px">'+
 	          
 	            '<div class="input-group">'+
 	              
@@ -114,24 +114,37 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	          '<!-- Cantidad del producto -->'+
 
-	          '<div class="col-xs-3">'+
+	          '<div class="col-xs-2 nuevaCantidadProducto">'+
 	            
 	             '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
 
 	          '</div>' +
 
-	          '<!-- Precio del producto -->'+
+	          '<!-- ITBIS del producto -->'+
 
-	          '<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
+	          '<div class="col-xs-3 itbisPrecio" style="padding-left:0px">'+
+
+	            '<div class="input-group">'+
+
+	              '<span class="input-group-addon"><i class="fa fa-percent"></i></span>'+
+	                 
+	              '<input type="text" class="form-control nuevoItbisProducto" precioReal="'+precio+'" name="nuevoItbisProducto" value="0" required>'+
+	 
+	            '</div>'+
+	             
+	          '</div>'+
+
+				'<!-- Precio del producto -->'+
+				'<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
 
 	            '<div class="input-group">'+
 
 	              '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
-	                 
+
 	              '<input type="text" class="form-control nuevoPrecioProducto" precioReal="'+precio+'" name="nuevoPrecioProducto" value="'+precio+'" readonly required>'+
-	 
+
 	            '</div>'+
-	             
+
 	          '</div>'+
 
 	        '</div>') 
@@ -300,6 +313,20 @@ $(".btnAgregarProducto").click(function(){
 
 	          '</div>' +
 
+					'<!-- ITBIS del producto -->'+
+
+					'<div class="col-xs-3 itbisPrecio" style="padding-left:0px">'+
+
+					'<div class="input-group">'+
+
+					'<span class="input-group-addon"><i class="fa fa-percent"></i></span>'+
+
+					'<input type="text" class="form-control nuevoItbisProducto" precioReal="'+precio+'" name="nuevoItbisProducto" value="0" required>'+
+
+					'</div>'+
+
+					'</div>'+
+
 	          '<!-- Precio del producto -->'+
 
 	          '<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
@@ -407,6 +434,7 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 	var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
 
 	var precioFinal = $(this).val() * precio.attr("precioReal");
+
 	
 	precio.val(precioFinal);
 
@@ -447,6 +475,31 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
 	// AGREGAR IMPUESTO
 	        
+    agregarImpuesto()
+
+    // AGRUPAR PRODUCTOS EN FORMATO JSON
+
+    listarProductos()
+
+})
+
+$(".formularioVenta").on("change", "input.nuevoItbisProducto", function(){
+
+
+	var precio = $(this).parent().parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
+	var cantidad = $(this).parent().parent().parent().children('.nuevaCantidadProducto').children();
+	const itbis = ($(this).val()/100);
+
+	var soloItbis = (precio.val() * itbis)
+	var montoConItbis = Number(precio.val()) + soloItbis;
+	precio.val(montoConItbis)
+
+
+
+	sumarTotalPrecios()
+
+	// AGREGAR IMPUESTO
+
     agregarImpuesto()
 
     // AGRUPAR PRODUCTOS EN FORMATO JSON
@@ -787,6 +840,20 @@ function agregarProductoCodeBar(codeBar){
 					'<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
 
 					'</div>' +
+
+					'<!-- ITBIS del producto -->'+
+
+					'<div class="col-xs-3 itbisPrecio" style="padding-left:0px">'+
+
+					'<div class="input-group">'+
+
+					'<span class="input-group-addon"><i class="fa fa-percent"></i></span>'+
+
+					'<input type="text" class="form-control nuevoItbisProducto" precioReal="'+precio+'" name="nuevoItbisProducto" value="0" required>'+
+
+					'</div>'+
+
+					'</div>'+
 
 					'<!-- Precio del producto -->'+
 
