@@ -9,7 +9,12 @@ Data Table
 =============================================*/
 
 $(".tablas").DataTable({
-
+	dom: 'Bfrtip',
+	buttons: [
+		{ extend: 'excel',  text: '<i class="fa fa-file-excel-o"></i>', titleAttr: 'Excel' },
+		{ extend: 'pdf', text: '<i class="fa fa-file-pdf-o"></i>', titleAttr: 'PDF' },
+		{ extend: 'print', text: '<i class="fa fa-print"></i>', titleAttr: 'Print'  },
+	],
 	"language": {
 
 		"sProcessing":     "Procesando...",
