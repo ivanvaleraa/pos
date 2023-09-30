@@ -21,7 +21,7 @@
 
 			<li>
 
-				<a href="usuarios">
+				<a href="usuarios-index">
 
 					<i class="fa fa-user"></i>
 					<span>Usuarios</span>
@@ -36,7 +36,7 @@
 
 			echo '<li>
 
-				<a href="categorias">
+				<a href="categorias-index">
 
 					<i class="fa fa-th"></i>
 					<span>Categorías</span>
@@ -55,13 +55,13 @@
                 </a>
                 <ul class="treeview-menu">
 					<li>
-						<a href="productos">
+						<a href="productos-index">
 							<i class="fa fa-circle-o"></i>
 							<span>Productos</span>
 						</a>
 					</li>
 					<li>
-						<a href="kits">
+						<a href="productos-kits">
 							<i class="fa fa-circle-o"></i>
 							<span>Kits</span>
 						</a>
@@ -76,7 +76,7 @@
 
 			echo '<li>
 
-				<a href="clientes">
+				<a href="clientes-index">
 
 					<i class="fa fa-users"></i>
 					<span>Clientes</span>
@@ -109,7 +109,7 @@
 					
 					<li>
 
-						<a href="ventas">
+						<a href="ventas-index">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Administrar ventas</span>
@@ -120,7 +120,7 @@
 
 					<li>
 
-						<a href="crear-venta">
+						<a href="ventas-crear">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Crear venta</span>

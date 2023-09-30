@@ -138,24 +138,14 @@ CUERPO DOCUMENTO
     =============================================*/
 
     if(isset($_GET["ruta"])){
-      if($_GET["ruta"] == "inicio" ||
-         $_GET["ruta"] == "usuarios" ||
-         $_GET["ruta"] == "categorias" ||
-         $_GET["ruta"] == "productos" ||
-         $_GET["ruta"] == "kits" ||
-         $_GET["ruta"] == "clientes" ||
-         $_GET["ruta"] == "ventas" ||
-         $_GET["ruta"] == "crear-venta" ||
-         $_GET["ruta"] == "editar-venta" ||
-         $_GET["ruta"] == "reportes" ||
-         $_GET["ruta"] == "salir"){
+        $rutas_validas = array("inicio","usuarios","categorias","productos","kits","clientes",
+            "ventas","reportes","salir");
 
-        include "modulos/".$_GET["ruta"].".php";
-
+      if(in_array(strtok($_GET["ruta"],"-"), $rutas_validas)){
+          $ruta = "modulos/".str_replace("-","/",$_GET["ruta"]).".php";
+          include $ruta;
       }else{
-
         include "modulos/404.php";
-
       }
 
     }else{

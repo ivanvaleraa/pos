@@ -18,7 +18,7 @@ if($xml){
 
   rename($_GET["xml"].".xml", "xml/".$_GET["xml"].".xml");
 
-  echo '<a class="btn btn-block btn-success abrirXML" archivo="xml/'.$_GET["xml"].'.xml" href="ventas">Se ha creado correctamente el archivo XML <span class="fa fa-times pull-right"></span></a>';
+  echo '<a class="btn btn-block btn-success abrirXML" archivo="xml/'.$_GET["xml"]. '.xml" href="">Se ha creado correctamente el archivo XML <span class="fa fa-times pull-right"></span></a>';
 
 }
 
@@ -35,7 +35,7 @@ if($xml){
 
     <ol class="breadcrumb">
       
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><a href="../inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
       <li class="active">Administrar ventas</li>
     
@@ -49,7 +49,7 @@ if($xml){
 
       <div class="box-header with-border">
   
-        <a href="crear-venta">
+        <a href="../../../index.php">
 
           <button class="btn btn-primary">
             
