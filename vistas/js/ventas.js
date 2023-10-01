@@ -42,7 +42,8 @@ $('.tablaVentas').DataTable( {
 				"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
 				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			}
-	},
+
+	}
 
 } );
 
@@ -111,9 +112,9 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	          '</div>'+
 
-	          '<!-- Cantidad del producto -->'+
+	          '<!-- Cantidad del producto, no poner nuevaCantidadProducto en el div -->'+
 
-	          '<div class="col-xs-2 nuevaCantidadProducto">'+
+	          '<div class="col-xs-2">'+
 	            
 	             '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
 
@@ -718,7 +719,7 @@ function listarProductos(){
 							  "total" : $(precio[i]).val()})
 
 	}
-
+console.log(listaProductos)
 	$("#listaProductos").val(JSON.stringify(listaProductos)); 
 
 }
