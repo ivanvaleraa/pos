@@ -1,17 +1,17 @@
 <?php
 
 class Conexion{
-
-	static public function conectar(){
-
-		$link = new PDO( 'mysql:host=127.0.0.1:3306;dbname=pos',
-            'root',
-            '4149769i');
-
-		$link->exec("set names utf8");
-
-		return $link;
-
+    //actualizacion para poder conseguir el lastId. El codigo viejo no lo conseguia porque cada vez
+    //que se llamaba al metodo static se creaba una nueva llamada y por lo tanto una nueva sesion,
+    //impidiendo recuperar el lastId de la sesion que ya estaba abierta, por lo tanto retornaba 0.
+    public static $link;
+    public static function conectar(){
+        if(!self::$link){
+            self::$link = new PDO( 'mysql:host=127.0.0.1:3306;dbname=pos',
+                'root',
+                '4149769i');
+        }
+		return self::$link;
 	}
 
 }
