@@ -490,11 +490,8 @@ $(".formularioVenta").on("change", "input.nuevoItbisProducto", function(){
 	var cantidad = $(this).parent().parent().parent().children('.nuevaCantidadProducto').children();
 	const itbis = ($(this).val()/100);
 
-
-	console.log("itbis: "+itbis)
 	var soloItbis = (precio.val() * itbis)
 
-	console.log("itbis: "+soloItbis)
 	var montoConItbis = Number(precio.val()) + soloItbis;
 
 	if(itbis == 0){
@@ -719,7 +716,6 @@ function listarProductos(){
 							  "total" : $(precio[i]).val()})
 
 	}
-console.log(listaProductos)
 	$("#listaProductos").val(JSON.stringify(listaProductos)); 
 
 }
