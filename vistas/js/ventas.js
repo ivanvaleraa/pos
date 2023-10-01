@@ -489,9 +489,18 @@ $(".formularioVenta").on("change", "input.nuevoItbisProducto", function(){
 	var cantidad = $(this).parent().parent().parent().children('.nuevaCantidadProducto').children();
 	const itbis = ($(this).val()/100);
 
+
+	console.log("itbis: "+itbis)
 	var soloItbis = (precio.val() * itbis)
+
+	console.log("itbis: "+soloItbis)
 	var montoConItbis = Number(precio.val()) + soloItbis;
-	precio.val(montoConItbis)
+
+	if(itbis == 0){
+		precio.val(precio.attr("precioReal"));
+	}else{
+		precio.val(montoConItbis)
+	}
 
 
 
@@ -696,6 +705,8 @@ function listarProductos(){
 
 	var precio = $(".nuevoPrecioProducto");
 
+	var itbis = $(".nuevoItbisProducto");
+
 	for(var i = 0; i < descripcion.length; i++){
 
 		listaProductos.push({ "id" : $(descripcion[i]).attr("idProducto"), 
@@ -703,6 +714,7 @@ function listarProductos(){
 							  "cantidad" : $(cantidad[i]).val(),
 							  "stock" : $(cantidad[i]).attr("nuevoStock"),
 							  "precio" : $(precio[i]).attr("precioReal"),
+							  "itbis" : $(itbis[i]).val(),
 							  "total" : $(precio[i]).val()})
 
 	}
