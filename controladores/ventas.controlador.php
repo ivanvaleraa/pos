@@ -78,12 +78,10 @@ class ControladorVentas{
 			    $nuevasVentas = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
 
 				$item1b = "stock";
-				$valor1b = $value["stock"];
-
+				$valor1b = $value["stock"];;
 				$nuevoStock = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
 
 			}
-
 			$tablaClientes = "clientes";
 
 			$item = "id";
@@ -226,7 +224,7 @@ class ControladorVentas{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "ventas";
+								window.location = "ventas-index";
 
 								}
 							})

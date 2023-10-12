@@ -29,7 +29,7 @@ class ModeloVentas{
 			return $stmt -> fetchAll();
 
 		}
-		
+
 		$stmt -> close();
 
 		$stmt = null;
@@ -41,9 +41,6 @@ class ModeloVentas{
 	=============================================*/
 
 	static public function mdlIngresarVenta($tabla, $datos){
-
-
-
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, id_cliente, id_vendedor, productos, impuesto, neto, total, metodo_pago, nombre_contado) VALUES (:codigo, :id_cliente, :id_vendedor, :productos, :impuesto, :neto, :total, :metodo_pago, :nombre_contado)");
 
@@ -57,11 +54,23 @@ class ModeloVentas{
 		$stmt->bindParam(":metodo_pago", $datos["metodo_pago"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombre_contado", $datos["nombre_contado"], PDO::PARAM_STR);
 
+        $productos = json_decode($datos["productos"],true);
 		if($stmt->execute()){
-			return "ok";
+            $id = Conexion::conectar()->lastInsertId();  //id de la venta
+            var_dump($id);
+            die;
+            foreach($productos as $producto){
+                $id_producto = $producto["id"];
+                $cantidad = $producto["cantidad"];
+                $precio = $producto["precio"];
+                $itbis = $producto["itbis"];
+                $total = $producto["total"];
+                $query = "INSERT INTO ventas_productos (id_ventas, id_productos, cantidad, precio, itbis, total) VALUES ($id, $id_producto, $cantidad, $precio, $itbis, $total);";
+                Conexion::conectar()->query($query);
+            }
+			return "ok"; //retornamos el ok
 		}else{
 			return "error";
-		
 		}
 
 		$stmt->close();
@@ -93,7 +102,7 @@ class ModeloVentas{
 		}else{
 
 			return "error";
-		
+
 		}
 
 		$stmt->close();
@@ -114,10 +123,10 @@ class ModeloVentas{
 		if($stmt -> execute()){
 
 			return "ok";
-		
+
 		}else{
 
-			return "error";	
+			return "error";
 
 		}
 
@@ -129,7 +138,7 @@ class ModeloVentas{
 
 	/*=============================================
 	RANGO FECHAS
-	=============================================*/	
+	=============================================*/
 
 	static public function mdlRangoFechasVentas($tabla, $fechaInicial, $fechaFinal){
 
@@ -139,7 +148,7 @@ class ModeloVentas{
 
 			$stmt -> execute();
 
-			return $stmt -> fetchAll();	
+			return $stmt -> fetchAll();
 
 
 		}else if($fechaInicial == $fechaFinal){
@@ -170,7 +179,7 @@ class ModeloVentas{
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha BETWEEN '$fechaInicial' AND '$fechaFinal' ORDER BY id DESC");
 
 			}
-		
+
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();
@@ -183,7 +192,7 @@ class ModeloVentas{
 	SUMAR EL TOTAL DE VENTAS
 	=============================================*/
 
-	static public function mdlSumaTotalVentas($tabla){	
+	static public function mdlSumaTotalVentas($tabla){
 
 		$stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla");
 
@@ -197,5 +206,5 @@ class ModeloVentas{
 
 	}
 
-	
+
 }
