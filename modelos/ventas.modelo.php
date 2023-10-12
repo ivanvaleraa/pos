@@ -57,8 +57,6 @@ class ModeloVentas{
         $productos = json_decode($datos["productos"],true);
 		if($stmt->execute()){
             $id = Conexion::conectar()->lastInsertId();  //id de la venta
-            var_dump($id);
-            die;
             foreach($productos as $producto){
                 $id_producto = $producto["id"];
                 $cantidad = $producto["cantidad"];
