@@ -49,7 +49,7 @@ if($xml){
 
       <div class="box-header with-border">
   
-        <a href="../../../index.php">
+        <a href="ventas-crear">
 
           <button class="btn btn-primary">
             

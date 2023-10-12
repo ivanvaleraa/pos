@@ -747,7 +747,7 @@ $(".tablas").on("click", ".btnEditarVenta", function(){
 
 	var idVenta = $(this).attr("idVenta");
 
-	window.location = "index.php?ruta=editar-venta&idVenta="+idVenta;
+	window.location = "index.php?ruta=ventas-editar&idVenta="+idVenta;
 
 
 })
@@ -926,7 +926,7 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
 
   swal({
         title: '¿Está seguro de borrar la venta?',
-        text: "¡Si no lo está puede cancelar la accíón!",
+        text: "¡Si no lo está puede cancelar la acción!",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -935,8 +935,7 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
         confirmButtonText: 'Si, borrar venta!'
       }).then(function(result){
         if (result.value) {
-          
-            window.location = "index.php?ruta=ventas&idVenta="+idVenta;
+            window.location = "index.php?ruta=ventas-index&idVenta="+idVenta;
         }
 
   })
