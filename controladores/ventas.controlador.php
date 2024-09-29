@@ -45,7 +45,7 @@ class ControladorVentas{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "ventas";
+								window.location = "ventas-index";
 
 								}
 							})
@@ -400,7 +400,7 @@ class ControladorVentas{
 					  }).then((result) => {
 								if (result.value) {
 
-								window.location = "ventas";
+								window.location = "ventas-index";
 
 								}
 							})
@@ -545,7 +545,7 @@ class ControladorVentas{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "ventas";
+								window.location = "ventas-index";
 
 								}
 							})

@@ -120,7 +120,7 @@ class ControladorProductos{
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "productos";
+										window.location = "productos-index";
 
 										}
 									})
@@ -142,7 +142,7 @@ class ControladorProductos{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "productos";
+							window.location = "productos-index";
 
 							}
 						})
@@ -269,7 +269,7 @@ class ControladorProductos{
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "productos";
+										window.location = "productos-index";
 
 										}
 									})
@@ -291,7 +291,7 @@ class ControladorProductos{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "productos";
+							window.location = "productos-index";
 
 							}
 						})
@@ -333,7 +333,7 @@ class ControladorProductos{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "productos";
+								window.location = "productos-index";
 
 								}
 							})

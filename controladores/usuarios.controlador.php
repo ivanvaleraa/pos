@@ -187,7 +187,7 @@ class ControladorUsuarios{
 
 						if(result.value){
 						
-							window.location = "usuarios";
+							window.location = "usuarios-index";
 
 						}
 
@@ -215,7 +215,7 @@ class ControladorUsuarios{
 
 						if(result.value){
 						
-							window.location = "usuarios";
+							window.location = "usuarios-index";
 
 						}
 
@@ -354,7 +354,7 @@ class ControladorUsuarios{
 									  }).then(function(result) {
 										if (result.value) {
 
-										window.location = "usuarios";
+										window.location = "usuarios-index";
 
 										}
 									})
@@ -391,7 +391,7 @@ class ControladorUsuarios{
 						  }).then(function(result) {
 									if (result.value) {
 
-									window.location = "usuarios";
+									window.location = "usuarios-index";
 
 									}
 								})
@@ -413,7 +413,7 @@ class ControladorUsuarios{
 						  }).then(function(result) {
 							if (result.value) {
 
-							window.location = "usuarios";
+							window.location = "usuarios-index";
 
 							}
 						})
@@ -459,7 +459,7 @@ class ControladorUsuarios{
 					  }).then(function(result) {
 								if (result.value) {
 
-								window.location = "usuarios";
+								window.location = "usuarios-index";
 
 								}
 							})

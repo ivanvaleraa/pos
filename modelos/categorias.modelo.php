@@ -15,13 +15,12 @@ class ModeloCategorias{
 		$stmt->bindParam(":categoria", $datos, PDO::PARAM_STR);
 
 		if($stmt->execute()){
-
 			return "ok";
 
 		}else{
-
+            echo 'aa';
+            die;
 			return "error";
-		
 		}
 
 		$stmt->close();

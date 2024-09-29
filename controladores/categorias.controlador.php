@@ -29,9 +29,7 @@ class ControladorCategorias{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
-
-									window.location = "categorias";
-
+									window.location = "categorias-index";
 									}
 								})
 
@@ -51,9 +49,7 @@ class ControladorCategorias{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
-
-							window.location = "categorias";
-
+							window.location = "categorias-index";
 							}
 						})
 
@@ -108,7 +104,7 @@ class ControladorCategorias{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "categorias-index";
 
 									}
 								})

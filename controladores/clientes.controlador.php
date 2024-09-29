@@ -39,7 +39,7 @@ class ControladorClientes{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "clientes";
+									window.location = "clientes-index";
 
 									}
 								})
@@ -60,7 +60,7 @@ class ControladorClientes{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "clientes";
+							window.location = "clientes-index";
 
 							}
 						})
@@ -127,7 +127,7 @@ class ControladorClientes{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "clientes";
+									window.location = "clientes-index";
 
 									}
 								})
@@ -148,7 +148,7 @@ class ControladorClientes{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "clientes";
+							window.location = "clientes-index";
 
 							}
 						})
@@ -189,7 +189,7 @@ class ControladorClientes{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "clientes";
+								window.location = "clientes-index";
 
 								}
 							})

@@ -9,7 +9,7 @@ class Conexion{
         if(!self::$link){
             self::$link = new PDO( 'mysql:host=127.0.0.1:3306;dbname=pos',
                 'root',
-                '4149769i');
+                'root');
         }
 		return self::$link;
 	}
