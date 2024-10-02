@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="3c42015b-732b-48b8-91da-4aa69549c107" name="stockflowdo" url="http://ftp.stockflowdo.com">
-        <fileTransfer host="ftp.stockflowdo.com" port="21">
+      <webServer id="3c42015b-732b-48b8-91da-4aa69549c107" name="stockflowdo" url="http://138.197.97.122">
+        <fileTransfer rootFolder="/applications/adxhbkeexw/public_html" accessType="SFTP" host="138.197.97.122" port="22" sshConfigId="dbb1356d-522f-4e53-8df5-bb03ed866034" sshConfig="master_skfmwbzbzz@138.197.97.122:22 password">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
