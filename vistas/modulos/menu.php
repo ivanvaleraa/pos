@@ -89,6 +89,17 @@
 
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
 
+            echo '<li>
+
+				<a href="proveedores-index">
+
+					<i class="fa fa-tags"></i>
+					<span>Proveedores</span>
+
+				</a>
+
+			</li>';
+
 			echo '<li class="treeview">
 
 				<a href="#">
@@ -128,6 +139,7 @@
 						</a>
 
 					</li>';
+
 
 					if($_SESSION["perfil"] == "Administrador"){
 
