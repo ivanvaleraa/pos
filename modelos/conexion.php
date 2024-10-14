@@ -7,9 +7,9 @@ class Conexion{
     public static $link;
     public static function conectar(){
         if(!self::$link){
-            self::$link = new PDO( 'mysql:host=127.0.0.1:3306;dbname=pos',
-                'root',
-                'root');
+            self::$link = new PDO( 'mysql:host=127.0.0.1:3306;dbname=adxhbkeexw',
+                'adxhbkeexw',
+                '3ZkFSqtv27');
         }
 		return self::$link;
 	}
