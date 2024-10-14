@@ -115,6 +115,37 @@ MODAL AGREGAR PRODUCTO
 
           <div class="box-body">
 
+<!--              ENTRADA PARA SELECCIONAR PROVEEDOR-->
+
+              <div class="form-group">
+
+                  <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-male"></i></span>
+
+                      <select class="form-control input-lg" id="nuevoProveedor" name="nuevoProveedor" required>
+
+                          <option value="">Selecionar proveedor</option>
+
+                          <?php
+
+                          $item = null;
+                          $valor = null;
+
+                          $proveedores = ControladorProveedores::ctrMostrarProveedores($item, $valor);
+
+                          foreach ($proveedores as $key => $value) {
+
+                              echo '<option value="'.$value["id"].'">'.$value["proveedor"].'</option>';
+                          }
+
+                          ?>
+
+                      </select>
+
+                  </div>
+
+              </div>
 
             <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
 

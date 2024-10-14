@@ -93,7 +93,7 @@
 
 				<a href="proveedores-index">
 
-					<i class="fa fa-tags"></i>
+					<i class="fa fa-male"></i>
 					<span>Proveedores</span>
 
 				</a>

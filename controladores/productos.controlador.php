@@ -99,12 +99,14 @@ class ControladorProductos{
 				$tabla = "productos";
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+                               "id_proveedor" => $_POST["nuevoProveedor"],
 							   "codigo" => $_POST["nuevoCodigo"],
 							   "descripcion" => $_POST["nuevaDescripcion"],
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_compra" => $_POST["nuevoPrecioCompra"],
 							   "precio_venta" => $_POST["nuevoPrecioVenta"],
 							   "imagen" => $ruta);
+
 
 				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
 
