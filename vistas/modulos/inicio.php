@@ -22,7 +22,25 @@
 
   <section class="content">
 
+
     <div class="row">
+
+<!--        ACTUALIZACIONES   -->
+        <div class="row" style="padding-left: 10px;">
+                <div class="col-md-12">
+                    <h1><b><span class="text-success">Actualizaciones 2024-10-14</span></b></h1>
+                    <ul>
+                        <li><i><span style="font-size: 22px">Proveedores agregados</span></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <h1><b><span class="text-success">Próximamente...</span></b></h1>
+                    <ul>
+                        <li><i><span style="font-size: 22px">Emisión de Facturas (NCF)</span></i></li>
+                    </ul>
+                </div>
+        </div>
+
       
     <?php
 
